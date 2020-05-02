@@ -1,5 +1,5 @@
 @if ($errors->any())
-<div class="alert alert-danger alert-dismissible">
+<div class="alert alert-danger alert-dismissible" data-auto-dismiss="3000">
     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
     <h4><i class="icon fa fa-ban"></i>El formulario contiene errores</h4>
     <ul>
