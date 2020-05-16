@@ -1,1 +1,2 @@
-@include("theme.$theme.layout");
+@include('includes.form-error')
+@include("theme.$theme.layout")

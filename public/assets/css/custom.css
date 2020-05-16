@@ -1,6 +1,6 @@
-label.requerido:after{
-    content:"*";
-    color: #e73d4a
+label.requerido:after {
+    content: "*";
+    color: #e73d4a;
 }
 
 .btn-accion-tabla {
@@ -8,14 +8,27 @@ label.requerido:after{
     border: none;
     background: 0;
     padding: 0 0 0 5px;
-    font-size:14px !important;
+    font-size: 14px !important;
     line-height: 1.5;
 }
 /* esto es solo para bootstrap 3 */
-.d-inline{
-    display:inline;
+.d-inline {
+    display: inline;
 }
 
 .width70 {
     width: 70px !important;
 }
+
+.pl-20 {
+    padding-left: 20px !important;
+}
+
+.pl-30 {
+    padding-left: 30px !important;
+}
+
+.pl-40 {
+    padding-left: 40px !important;
+}
+/* aqui termina lo de bootstrap 3 */

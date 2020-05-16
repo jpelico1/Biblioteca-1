@@ -6,6 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class MenuRol extends Model
 {
-    protected $table = "menurol";
+    protected $table = "menu_rol";
     public $timestamps = false;
 }

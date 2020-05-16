@@ -11,9 +11,14 @@
 |
 */
 
-Route::get('/','InicioController@index');
+Route::get('/','InicioController@index')->name('inicio');
+Route::get('seguridad/login','Seguridad\LoginController@index')->name('login');
+Route::post('seguridad/login','Seguridad\LoginController@login')->name('login_post');
+Route::get('seguridad/logout','Seguridad\LoginController@logout')->name('logout');
 
-Route::group(['prefix'=> 'admin','namespace' => 'Admin'], function (){
+Route::group(['prefix'=> 'admin','namespace' => 'Admin', 'middleware'=>['auth','superadmin']], function (){
+    Route::get('','AdminController@index');
+
     Route::get('permiso','PermisoController@index')->name('permiso');
     Route::get('permiso/crear','PermisoController@crear')->name('crear_permiso');
 
@@ -28,6 +33,9 @@ Route::group(['prefix'=> 'admin','namespace' => 'Admin'], function (){
     Route::get('rol/{id}/editar','RolController@editar')->name('editar_rol');
     Route::put('rol/{id}','RolController@actualizar')->name('actualizar_rol');
     Route::delete('rol/{id}','RolController@eliminar')->name('eliminar_rol');
+
+    Route::get('menu-rol','MenuRolController@index')->name('menu_rol');
+    Route::post('menu-rol','MenuRolController@guardar')->name('guardar_menu_rol');
 });
 
 
