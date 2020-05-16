@@ -21,7 +21,6 @@ class DatabaseSeeder extends Seeder
        $this->call(TablaPermisoSeeder::class);
        $this->call(UsuarioAdministradorSeeder::class);
 
-       este es un cambio que hizo guille.
     }
 
     protected function truncateTablas(array $tablas){
