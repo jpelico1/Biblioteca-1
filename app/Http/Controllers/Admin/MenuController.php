@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\validacionMenu;
 use App\Models\Admin\Menu;
+use Illuminate\Database\QueryException;
 
 class MenuController extends Controller
 {
@@ -59,9 +60,10 @@ class MenuController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function editar($id)
     {
-        //
+       $data = Menu::findOrFail($id);
+       return view('admin.menu.editar',compact('data'));
     }
 
     /**
@@ -71,9 +73,10 @@ class MenuController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function actualizar(Request $request, $id)
+    public function actualizar(validacionMenu $request, $id)
     {
-        //
+       Menu::findOrFail($id)->update($request->all());
+       return redirect('admin/menu')->with('mensaje','Menú actualizado con éxito.');
     }
 
     /**
@@ -84,7 +87,12 @@ class MenuController extends Controller
      */
     public function eliminar($id)
     {
-        //
+       try{
+        Menu::destroy($id);}
+        catch(QueryException $e){
+            return redirect('admin/menu')->withErrors('El menú no se puede borrar debido a que ya está asignado.');
+        }
+       return redirect('admin/menu')->with('mensaje','Menú eliminando con éxito.');
     }
 
     public function guardarOrden (Request $request)
