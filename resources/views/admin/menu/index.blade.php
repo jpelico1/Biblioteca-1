@@ -15,6 +15,10 @@ Menú
 <script src="{{asset("assets/pages/scripts/admin/menu/index.js")}}" type="text/javascript"></script>
 @endsection
 
+@section('breadcrumbs')
+{{Breadcrumbs::render('menu') }}
+@endsection
+
 @section('contenido')
 <div class="row">
     <div class="col-lg-12">

@@ -34,5 +34,19 @@ $(document).ready(function () {
         });
     });
 
+    $(document).ready(function () {
+        $('#leerMas').click(function () {
+            var collapse_content_selector = $('#collapse16');
+            var toggle_switch = $(this);
+            $(collapse_content_selector).toggle(function () {
+                if ($(this).css('display') == 'none') {
+                    toggle_switch.html('Leer Mas...');
+                } else {
+                    toggle_switch.html('');
+                }
+            });
+        });
+    });
+
     $('#nestable').nestable('expandAll');
 });

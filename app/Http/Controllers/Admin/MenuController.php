@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\validacionMenu;
 use App\Models\Admin\Menu;
-use Illuminate\Database\QueryException;
+use Exception;
 
 class MenuController extends Controller
 {
@@ -89,8 +89,8 @@ class MenuController extends Controller
     {
        try{
         Menu::destroy($id);}
-        catch(QueryException $e){
-            return redirect('admin/menu')->withErrors('El menú no se puede borrar debido a que ya está asignado.');
+        catch(Exception $e){
+            return redirect('admin/menu')->withErrors(['catch',$e->errorInfo]);
         }
        return redirect('admin/menu')->with('mensaje','Menú eliminando con éxito.');
     }
