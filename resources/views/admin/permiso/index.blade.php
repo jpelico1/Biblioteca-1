@@ -5,9 +5,15 @@ Permisos
 @section('contenido')
 <div class="row">
     <div class="col-lg-12">
+        @include('includes.mensaje')
+        @include('includes.form-error')
         <div class="box box-primary">
             <div class="box-header with-border">
                 <h3 class="box-title">Permisos</h3>
+                <div class="box-tools pull-right">
+                    <a href="{{route('crear_permiso')}}" class="btn btn-block btn-success btn-sm">
+                    <i class="fa fa-fw fa-plus-circle"></i>Nuevo registro</a>
+                    </div>
             </div>
             <div class="box-body table-responsive no-padding">
                 <table class="table table-bordered table-striped table-hover">

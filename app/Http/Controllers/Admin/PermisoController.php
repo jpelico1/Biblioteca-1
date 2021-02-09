@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\validacionPermiso;
 use App\Models\Admin\Permiso;
 
 class PermisoController extends Controller
@@ -27,6 +28,7 @@ class PermisoController extends Controller
     public function crear()
     {
         return view('admin.permiso.crear');
+        return redirect('admin/permiso/crear')->with('mensaje','Permiso creado exitosamente.');
     }
 
     /**
@@ -35,9 +37,10 @@ class PermisoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function guardar(Request $request)
+    public function guardar(validacionPermiso $request)
     {
-        //
+      Permiso::create($request->all());
+
     }
 
     /**
