@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(function() {
     $("#tabla-data").on('submit', '.form-eliminar', function (){
         event.preventDefault();
         const form = $(this);
@@ -25,6 +25,7 @@ $(document).ready(function() {
             success: function (respuesta) {
             if (respuesta.mensaje == "ok"){
                 form.parents('tr').remove();
+                console.log(form.attr('action'));
                 Biblioteca.notificaciones('El registro fue eliminado correctamente','Biblioteca','success');
             } else {
                 Biblioteca.notificaciones('El registro no pudo ser eliminado, hay recursos usandolo','Biblioteca','error');

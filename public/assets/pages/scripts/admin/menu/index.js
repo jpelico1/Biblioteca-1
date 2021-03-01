@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(function () {
     $('#nestable').nestable({
         maxDepth: 3,
     }).on('change', function () {
@@ -20,7 +20,7 @@ $(document).ready(function () {
         event.preventDefault();
         const url = $(this).attr('href');
         swal({
-            title: '¿Está seguro que desea eeliminar el registro?',
+            title: '¿Está seguro que desea eliminar el registro?',
             text: "Esta acción no se puede deshacer!",
             icon: 'warning',
             buttons: {
@@ -34,7 +34,7 @@ $(document).ready(function () {
         });
     });
 
-    $(document).ready(function () {
+    $(function () {
         $('#leerMas').click(function () {
             var collapse_content_selector = $('#collapse16');
             var toggle_switch = $(this);
